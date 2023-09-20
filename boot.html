@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css">
+		<title>Mundo do Hardware - Boot de um computador</title>
+	</head>
+	<body>
+		<header>
+			<img src="img/whiteLogo.png" alt="logo" class="logo">
+			<nav class="nav-links">
+				<a href="index.html">Home</a>
+				<a href="about.html">Sobre</a>
+				<a href="index.html#contact">Contato</a>
+				<a href="quiz.html">Quiz!</a>
+			</nav>
+		</header>
+		<main>
+			<div class="main-content">
+				<h2>Como funciona o boot de um computador</h2>
+				<p>
+					Desde o momento em que você liga o computador até o carregamento do sistema operacional, muita coisa acontece. Durante esses momentos preciosos, uma série de processos – conhecidos coletivamente como partida – funcionam como engrenagens para dar partida na máquina e mantê-la funcionando na velocidade máxima.
+				</p>
+				<p>
+					Em primeiro lugar, os componentes óbvios necessários para que a “mágica” aconteça são o cabo, a fonte de alimentação (no caso de um portátil, a bateria desempenha esta função), a fonte de alimentação e a disposição adequada dos componentes de hardware.
+				</p>
+				<p>
+					Se você já abriu o gabinete do seu computador, provavelmente notou que a placa-mãe possui uma pequena luz LED que indica energia reserva. Quando você pressiona o botão liga / desliga, a fonte de alimentação envia energia para a placa-mãe, que então ativa o processador e o cooler.
+				</p>
+				<h3>BIOS, a peça-chave</h3>
+				<p>
+
+					Em seguida, entra em funcionamento o BIOS (Basic Input/Output System - Sistema Básico de Entrada/Saída em português), sistema operacional pré-gravado no chipset que garante a tradução do código do hardware para a tela - sua interface de configuração. (Utilitário de configurações) é azul e é facilmente reconhecido por muitos usuários (isso não significa que seja fácil de entender!)
+				</p>
+				<div class="img-content">
+					<img src="img/bios.jpg" alt="bios" id="bios">
+				</div>
+				<p>
+					Imagine que o BIOS será sempre o primeiro a acordar e começar a funcionar assim que você ligar o PC. É ele quem transmite os primeiros comandos ao processador, além de verificar quais elementos estão instalados na máquina.
+				</p>
+				<p>
+					O BIOS também é responsável por carregar a RAM, placa de vídeo, teclado, cache base e, por fim, pela capacidade de inicializar o sistema operacional. Vamos acompanhar as etapas pelas quais ele passa em ordem cronológica:
+				</p><br>
+				<ol>
+					<li>
+						Acessa a memória CMOS, um circuito integrado que grava informações
+						referentes ao hardware. Nela, o BIOS estabelece reconhecimento e
+						comunicação com peças como placas de vídeo e memória RAM.
+					</li><br>
+					<li>
+						A segunda fase, conhecida como Power-on Self Test (POST) nada mais é do
+						que um conjunto de teste que a BIOS realiza para saber se tudo está se
+						inicializando da maneira correta. Quando alguns componentes essenciais
+						estão faltando, alguns beeps ou mensagens na tela alertam o usuário.
+					</li><br>
+					<li>
+						A etapa seguinte consiste na procura de alguma fonte para inicializar o
+						sistema operacional. Tal fonte é configurável e pode ser um disco rígido
+						(padrão), CD-ROM, pendrive, disquete, entre outros.
+					</li><br>
+					<li>
+						Agora, o BIOS lê o setor zero (que contém apenas 512 bytes, denominado
+						Master Boot Record) do HD. Essa área contém um código que alavanca a
+						inicialização do sistema operacional. Outros dispositivos de boot (CDs,
+						disquetes etc.) têm a capacidade de emular esse setor zero.
+					</li><br>
+					<li>
+						No caso do Windows, o Master Boot Record (MBR) verifica qual partição do
+						HD está ativa (configurada como Master) e inicializa o “setor um” dela —
+						essa área tem um código com a simples missão de carregar o setor dois.
+					</li><br>
+					<li>
+						A etapa seguinte consiste na leitura de um arquivo de configuração de
+						boot, o Boot Loader (quando falamos do Windows, trata-se do NTLDR).
+					</li><br>
+					<li>
+						A partir dele, é inicializado o núcleo (kernel). Assim como o BIOS
+						estabelece a ligação entre hardware e sistema, o kernel serve para
+						firmar uma comunicação estável entre hardware e software. Nessa fase, é
+						ele quem assume o controle do computador.
+					</li><br>
+					<li>
+						O kernel carrega os arquivos principais e informações básicas do sistema
+						operacional (incluindo o registro), além de relacionar os componentes de
+						hardware com as respectivas DLLs e drivers.
+					</li><br>
+					<li>
+						No entanto, o kernel não carrega todos os processos para não
+						sobrecarregar o sistema — somente as operações essenciais são colocadas
+						em atividade para possibilitar o início do Windows.
+					</li><br>
+					<li>
+						A tela de escolha de usuários é exibida e, após o logon, os programas
+						relacionados para começar junto com o sistema são carregados.
+					</li>
+				</ol>
+				<div class="img-content">
+					<img src="img/boot-steps.jpg" alt="boot-steps" id="boot-steps">
+				</div>
+				<h3>Dicas para apressar o boot da máquina</h3>
+				<p>
+					Como muitas outras tarefas realizadas em um computador, a inicialização do sistema também depende do hardware utilizado (principalmente RAM, CPU e disco rígido). Além disso, outros dois pontos devem ser observados: a quantidade de drivers e processos que iniciam no Windows e a quantidade de programas instalados.
+				</p>
+				<p>
+					Cada novo aplicativo instalado no computador modifica e expande o registro, aumentando o tempo de inicialização. Além, é claro, de desinstalar programas desnecessários, outra boa atitude do usuário é utilizar softwares que permitam limpar o registro.
+				</p>
+				<p>
+					Aplicativos como CCleaner Slim e Easy Cleaner oferecem diversas ferramentas de otimização de registro e também podem gerenciar histórico, cookies, DLLs inativas e outros arquivos que diminuem o desempenho da máquina – é recomendado. Use-os periodicamente.
+				</p>
+				<p>
+					Esses limpadores também permitem determinar quais programas iniciam com o Windows – outra maneira útil de acelerar o tempo de inicialização. Se estiver com pressa, basta excluir itens que você não considera importantes para o seu dia a dia.
+				</p>
+			</div>
+			<aside>
+				<h2>Outros Artigos</h2>
+				<div class="link">
+					<a href="hardware.html">
+						<img src="img/hardware.webp" alt="hardware">
+						<p>Hardware do computador</p>
+					</a>
+				</div>
+				<div class="link">
+					<a href="sistemaOperacional.html">
+						<img src="img/operatingSystems.jpg" alt="operatingSystems">
+						<p>O que é sistema operacional</p>
+					</a>
+				</div>
+				<div class="link">
+					<a href="memoria-armazenamento.html">
+						<img src="img/memoryStorage.jpg" alt="memoryStorage">
+						<p>Memória e armazenamento</p>
+					</a>
+				</div>
+				<div class="link">
+					<a href="execucaoCodigo.html">
+						<img src="img/machineLanguages.jpg" alt="machineLanguages">
+						<p>Execução de Código</p>
+					</a>
+				</div>
+			</aside>
+		</main>
+		<footer>
+			<div class="up-footer">
+				<img src="img/whiteLogo.png" alt="logo" class="logo">
+				<p class="footer-text">&copy; 2023 Marcus Cruseiro; Lucas Yuzo; Pedro Japiassu.</p>
+			</div>
+			<div class="line"></div>
+			<div class="down-footer">
+				<p class="footer-text">Links Referências:</p>
+				<a href="tecmundo.com.br/produto/230935-hardware-entenda-tudo-o-que-compoe-o-pc.htm">tecmundo.com.br/produto/230935-hardware-entenda-tudo-o-que-compoe-o-pc.htm</a><br><br>
+				<a href="https://www.tecmundo.com.br/aumentar-desempenho/11266-como-funciona-o-boot-de-um-computador.htm">https://www.tecmundo.com.br/aumentar-desempenho/11266-como-funciona-o-boot-de-um-computador.htm</a><br><br>
+				<a href="https://www.buscape.com.br/notebook/conteudo/o-que-e-sistema-operacional">https://www.buscape.com.br/notebook/conteudo/o-que-e-sistema-operacional</a><br><br>
+				<a href="https://www.kingston.com/br/blog/pc-performance/difference-between-memory-storage">https://www.kingston.com/br/blog/pc-performance/difference-between-memory-storage</a><br><br>
+				<a href="https://meuartigo.brasilescola.uol.com.br/informatica/os-dois-tipos-armazenamento-memoria.htm">https://meuartigo.brasilescola.uol.com.br/informatica/os-dois-tipos-armazenamento-memoria.htm</a><br><br>
+				<a href="https://knoow.net/ciencinformtelec/informatica/linguagem-maquina/#:~:text=pode%20executar%20diretamente.-,A%20linguagem%20máquina%20são%20os%20códigos%20numéricos%20para%20as%20operações,modificados%20para%20a%20visão%20humana.">https://knoow.net/ciencinformtelec/informatica/linguagem-maquina/</a><br><br>
+				<a href="https://canaltech.com.br/produtos/o-que-e-sistema-hexadecimal/">https://canaltech.com.br/produtos/o-que-e-sistema-hexadecimal/</a><br><br>
+				<a href="https://coodesh.com/blog/dicionario/o-que-e-assembly-language/">https://coodesh.com/blog/dicionario/o-que-e-assembly-language/</a><br><br>
+			</div>
+		</footer>
+	</body>
+</html>
